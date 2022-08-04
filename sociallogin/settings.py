@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
+    'post',
     # site 설정도!
     'django.contrib.sites',
     # django-rest-framework
