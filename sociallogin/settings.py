@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'post',
+    'drftest',
     # site 설정도!
     'django.contrib.sites',
     # django-rest-framework
