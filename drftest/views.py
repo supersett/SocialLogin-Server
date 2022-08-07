@@ -7,8 +7,8 @@ from drftest.serializers import CoordinateSerializer
 
 from rest_framework.response import Response
 from rest_framework import status
+from .models import Client,Coordination
 
-from user import serializers
 # Create your views here.
 
 class CoordinateCreateAPIView(APIView):

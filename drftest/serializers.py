@@ -9,7 +9,7 @@ class ClientSerializer(serializers.ModelSerializer):
         fields='__all__'
         
 class CoordinateSerializer(serializers.ModelSerializer):
-    clients=serializers.StringRelatedField(many=True)
+    client=serializers.StringRelatedField()
     
     class Meta:
         model=Coordination

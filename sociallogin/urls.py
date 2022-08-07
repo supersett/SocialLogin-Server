@@ -23,4 +23,5 @@ urlpatterns = [
     path('user/', include('allauth.urls')),
     path('user/', include('user.urls')),
     path('accounts/', include('user.urls')),
+    path('drftest/', include('drftest.urls')),
 ]
