@@ -9,6 +9,7 @@ class ClientSerializer(serializers.ModelSerializer):
         fields='__all__'
         
 class CoordinateSerializer(serializers.ModelSerializer):
+    #many=true를 지워야한다.
     client=serializers.StringRelatedField()
     
     class Meta:

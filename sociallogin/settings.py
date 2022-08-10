@@ -60,14 +60,19 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.kakao',
+    #cors
+    'corsheaders',
 ]
 
-SITE_ID = 1
+SITE_ID = 2
+
 
 AUTH_USER_MODEL = 'user.User' 
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -153,7 +158,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+        #'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None # username 필드 사용 x
@@ -173,3 +182,11 @@ SIMPLE_JWT = {
 SOCIAL_AUTH_GOOGLE_CLIENT_ID = os.environ.get("SOCIAL_AUTH_GOOGLE_CLIENT_ID")
 SOCIAL_AUTH_GOOGLE_SECRET = os.environ.get("SOCIAL_AUTH_GOOGLE_SECRET")
 
+KAKAO_REST_API_KEY = os.environ.get("KAKAO_REST_API_KEY")
+KAKAO_CLIENT_SECRET_KEY = os.environ.get("KAKAO_CLIENT_SECRET_KEY")
+
+#CORS configuration
+CORS_ORIGIN_ALLOW_ALL= True
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
